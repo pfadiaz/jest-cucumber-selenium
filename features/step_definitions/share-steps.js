@@ -4,16 +4,16 @@ import {Builder, until} from "selenium-webdriver";
 let chrome = require('selenium-webdriver/chrome');
 const world = {};
 
-const givenICreateMyDriver = function (cucumberMethods) {
-    cucumberMethods.given(/^I create world Driver for "(.*)"$/, async function (engine) {
+const givenICreateMyDriver = function ({given}) {
+    given(/^I create world Driver for "(.*)"$/, async function (engine) {
         world[engine] = {
             driver: await new Builder().forBrowser('chrome').setChromeOptions(new chrome.Options().headless()).build(),
         }
     });
 };
 
-const whenIOpenTheUrl = function ({when}) {
-    when(/^I have a browser with "(.*)"$/, async function (engine) {
+const whenIReachTheSearchEngine = function ({when}) {
+    when(/^I reach the "(.*)" search page$/, async function (engine) {
         const url = Pages[engine].uri();
         await world[engine].driver.get(url);
     });
@@ -27,15 +27,8 @@ const thenIRunASearchFor = function ({then}) {
     })
 };
 
-const andICloseTheWorldDriver = function ({and}) {
-    and(/^I close the world driver for "(.*)"$/, async function (engine) {
-        world[engine].driver.quit();
-    });
-};
-
 module.exports = {
     givenICreateMyDriver,
-    whenIOpenTheUrl,
+    whenIReachTheSearchEngine,
     thenIRunASearchFor,
-    andICloseTheWorldDriver
 };

@@ -7,8 +7,7 @@ defineFeature(feature, (test) => {
     test.concurrent('Verify a user can run a search', (cucumberMethods) => {
         jest.setTimeout(30000);
         step.givenICreateMyDriver(cucumberMethods);
-        step.whenIOpenTheUrl(cucumberMethods);
+        step.whenIReachTheSearchEngine(cucumberMethods);
         step.thenIRunASearchFor(cucumberMethods);
-        step.andICloseTheWorldDriver(cucumberMethods);
     });
 });
