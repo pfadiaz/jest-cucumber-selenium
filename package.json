@@ -1,0 +1,24 @@
+{
+  "name": "jest-worker",
+  "version": "1.0.0",
+  "description": "Quick test to use jest-cucumber with selenium",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/register": "^7.5.5",
+    "babel-jest": "^24.9.0",
+    "chromedriver": "^76.0.1",
+    "jest": "^24.9.0",
+    "jest-cucumber": "^2.0.11",
+    "jest-html-reporters": "^1.1.8"
+  },
+  "dependencies": {
+    "selenium-webdriver": "^4.0.0-alpha.4"
+  }
+}
